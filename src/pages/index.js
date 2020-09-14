@@ -1,6 +1,8 @@
 import React from "react"
+import { graphql } from 'gatsby'
+import Img from 'gatsby-image'
 
-export default function Home() {
+export default function Home({ data }) {
   return (
     <div>
       <header className="header">
@@ -20,7 +22,7 @@ export default function Home() {
       </header>
       <section className="hero">
         <figure>
-          <img src="/images/hero.jpg" alt="" />
+          <Img fluid={data.hero.childImageSharp.fluid} />
         </figure>
         <div className="catch">
           <h1>There is no love sincerer than<br /> the love of food.</h1>
@@ -36,7 +38,7 @@ export default function Home() {
           <div className="details">
             <div className="detail">
               <figure>
-                <img src="/images/fruit.jpg" alt="" />
+                <Img fluid={data.fruit.childImageSharp.fluid} />
               </figure>
               <h3>フルーツ</h3>
               <p>FRUIT</p>
@@ -44,7 +46,7 @@ export default function Home() {
             </div>
             <div className="detail">
               <figure>
-                <img src="/images/grain.jpg" alt="" />
+                <Img fluid={data.grain.childImageSharp.fluid} />
               </figure>
               <h3>穀物</h3>
               <p>GRAIN</p>
@@ -52,7 +54,7 @@ export default function Home() {
             </div>
             <div className="detail">
               <figure>
-                <img src="/images/beverage.jpg" alt="" />
+                <Img fluid={data.beverage.childImageSharp.fluid} />
               </figure>
               <h3>飲み物</h3>
               <p>BEVERAGE</p>
@@ -64,7 +66,7 @@ export default function Home() {
       <section className="photo">
         <h2 className="sr-only">Photo</h2>
         <figure>
-          <img src="/images/berry.jpg" alt="赤く熟したベリー" />
+          <Img fluid={data.berry.childImageSharp.fluid} />
         </figure>
       </section>
       <footer className="footer">
@@ -100,3 +102,48 @@ export default function Home() {
     </div>
   );
 }
+
+export const query = graphql`
+query MyQuery {
+  hero:file(relativePath: {eq: "hero.jpg"}) {
+    relativePath
+    childImageSharp {
+      fluid {
+        ...GatsbyImageSharpFluid_withWebp_tracedSVG
+      }
+    }
+  }
+  fruit:file(relativePath: {eq: "fruit.jpg"}) {
+    relativePath
+    childImageSharp {
+      fluid {
+        ...GatsbyImageSharpFluid_withWebp_tracedSVG
+      }
+    }
+  }
+  grain:file(relativePath: {eq: "grain.jpg"}) {
+    relativePath
+    childImageSharp {
+      fluid {
+        ...GatsbyImageSharpFluid_withWebp_tracedSVG
+      }
+    }
+  }
+  beverage:file(relativePath: {eq: "beverage.jpg"}) {
+    relativePath
+    childImageSharp {
+      fluid {
+        ...GatsbyImageSharpFluid_withWebp_tracedSVG
+      }
+    }
+  }
+  berry:file(relativePath: {eq: "berry.jpg"}) {
+    relativePath
+    childImageSharp {
+      fluid {
+        ...GatsbyImageSharpFluid_withWebp_tracedSVG
+      }
+    }
+  }
+}
+`
