@@ -2,12 +2,15 @@ import React from 'react'
 import Header from './header'
 import Footer from './footer'
 
-import './layout'
+import './layout.css'
 
-export default Layout = ({ children }) => {
-    <div>
-        <Header />
-        {children}
-        <Footer />
-    </div>
+export default ({ children }) => {
+    return (
+
+        <div>
+            <Header />
+            {children}
+            <Footer />
+        </div>
+    )
 }
