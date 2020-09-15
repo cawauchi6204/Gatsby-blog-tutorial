@@ -102,6 +102,13 @@ export default function Home({ data }) {
             </li>
           </ul>
         </div>
+        <div className="back">
+          <Img
+            fluid={data.pattern.childImageSharp.fluid}
+            alt=""
+            style={{ height: '100%' }}
+          />
+        </div>
       </footer>
     </div>
   );
@@ -112,7 +119,7 @@ query MyQuery {
   hero:file(relativePath: {eq: "hero.jpg"}) {
     relativePath
     childImageSharp {
-      fluid {
+      fluid (maxWidth:1600){
         ...GatsbyImageSharpFluid_withWebp_tracedSVG
       }
     }
@@ -120,7 +127,7 @@ query MyQuery {
   fruit:file(relativePath: {eq: "fruit.jpg"}) {
     relativePath
     childImageSharp {
-      fluid {
+      fluid (maxWidth:320){
         ...GatsbyImageSharpFluid_withWebp_tracedSVG
       }
     }
@@ -128,7 +135,7 @@ query MyQuery {
   grain:file(relativePath: {eq: "grain.jpg"}) {
     relativePath
     childImageSharp {
-      fluid {
+      fluid (maxWidth:320){
         ...GatsbyImageSharpFluid_withWebp_tracedSVG
       }
     }
@@ -136,7 +143,7 @@ query MyQuery {
   beverage:file(relativePath: {eq: "beverage.jpg"}) {
     relativePath
     childImageSharp {
-      fluid {
+      fluid (maxWidth:320){
         ...GatsbyImageSharpFluid_withWebp_tracedSVG
       }
     }
@@ -144,7 +151,15 @@ query MyQuery {
   berry:file(relativePath: {eq: "berry.jpg"}) {
     relativePath
     childImageSharp {
-      fluid {
+      fluid(maxWidth:1600,quality:90) {
+        ...GatsbyImageSharpFluid_withWebp_tracedSVG
+      }
+    }
+  }
+  pattern:file(relativePath: {eq: "pattern.jpg"}) {
+    relativePath
+    childImageSharp {
+      fluid(maxWidth:1920,quality:90) {
         ...GatsbyImageSharpFluid_withWebp_tracedSVG
       }
     }
