@@ -11,6 +11,7 @@ module.exports = {
     description: `美味しい食材と食事を探求するサイト`,
     lang: `ja`,
     siteUrl: `https://serene-boyd-69de29.netlify.app`,
+    locale: 'ja_JP',
   },
   plugins: [
     `gatsby-transformer-sharp`,
