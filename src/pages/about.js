@@ -5,11 +5,20 @@ import Layout from '../components/layout'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUtensils, faCheckSquare } from '@fortawesome/free-solid-svg-icons'
+import SEO from './seo'
 
-export default ({ data }) => {
+export default ({ data, location }) => {
     return (
         <div>
             <Layout>
+                <SEO
+                    pagetitle="ESSENTIALSについて"
+                    pagedesc="食べ物についての情報を発信しているサイトです。"
+                    pagepath={location.pathname}
+                    pageimg={data.about.childImageSharp.original.src}
+                    pageimgw={data.about.childImageSharp.original.width}
+                    pageimgh={data.about.childImageSharp.original.height}
+                />
                 <div className="eyecatch">
                     <figure>
                         <Img
@@ -55,6 +64,11 @@ query {
       fluid (maxWidth:1600){
         ...GatsbyImageSharpFluid_withWebp_tracedSVG
       }
+      original {
+          src
+          height
+          width
+        }
     }
   }
 }
