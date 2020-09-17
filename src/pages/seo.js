@@ -24,6 +24,13 @@ export default props => {
     // a or b aがtrueならa,aがfalseならb
 
     const url = props.pagepath ? `${data.site.siteMetadata.siteUrl}${props.pagepath}` : data.site.siteMetadata.siteUrl
+
+    const imgurl = props.pageimg
+        ? `${data.site.siteMetadata.siteUrl}${props.pageimg}`
+        : `${data.site.siteMetadata.siteUrl}/thumb.jpg`
+
+    const imgw = props.pageimgw || 1200
+    const imgh = props.pageimgh || 640
     return (
         // Helmetの中にseo情報を記載していく
         <Helmet>
@@ -36,7 +43,13 @@ export default props => {
             <meta property="og:title" content={title} />
             <meta property="og:description" content={description} />
             <meta property="og:url" content={url} />
-            <meta propery="og:locale" content={data.site.siteMetadata.locale} />
+            <meta property="og:locale" content={data.site.siteMetadata.locale} />
+
+            <meta property="og:image" content={imgurl} />
+            <meta property="og:image:width" content={imgw} />
+            <meta property="og:image:height" content={imgh} />
+
+            <meta name="twitter:card" content="summary_large_image" />
         </Helmet>
     )
 }
