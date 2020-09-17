@@ -2,11 +2,13 @@ import React from "react"
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import Layout from '../components/layout'
+import SEO from './seo'
 
 export default function Home({ data }) {
   return (
     <div>
       <Layout>
+        <SEO />
         <section className="hero">
           <figure>
             <Img fluid={data.hero.childImageSharp.fluid}

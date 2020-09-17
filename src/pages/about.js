@@ -5,11 +5,17 @@ import Layout from '../components/layout'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUtensils, faCheckSquare } from '@fortawesome/free-solid-svg-icons'
+import SEO from './seo'
 
-export default ({ data }) => {
+export default ({ data, location }) => {
     return (
         <div>
             <Layout>
+                <SEO
+                    pagetitle="ESSENTIALSについて"
+                    pagedesc="食べ物についての情報を発信しているサイトです。"
+                    pagepath={location.pathname}
+                />
                 <div className="eyecatch">
                     <figure>
                         <Img
